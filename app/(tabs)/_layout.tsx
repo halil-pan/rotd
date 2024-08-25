@@ -1,7 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -12,23 +13,23 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
+        headerShown: true,
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          title: 'ROTD',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 size={28} style={[{ marginBottom: -3 }]} name="running" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="collections"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          title: 'Collections',
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons size={28} style={[{ marginBottom: -3 }]} name="collections" color={color} />
           ),
         }}
       />
